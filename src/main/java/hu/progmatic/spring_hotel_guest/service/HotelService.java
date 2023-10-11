@@ -1,15 +1,18 @@
 package hu.progmatic.spring_hotel_guest.service;
 
 import hu.progmatic.spring_hotel_guest.model.Hotel;
+import hu.progmatic.spring_hotel_guest.model.Reservation;
 import hu.progmatic.spring_hotel_guest.repo.HotelRepo;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class HotelService {
 
-private final HotelRepo hotelRepo;
+    private final HotelRepo hotelRepo;
 
     public HotelService(HotelRepo hotelRepo) {
         this.hotelRepo = hotelRepo;
@@ -19,5 +22,15 @@ private final HotelRepo hotelRepo;
         return hotelRepo.findAll();
     }
 
+    public int calculateMaxCapacity() {
+        List<Hotel> allHotels = getAllHotels();
+        int maxCapacity = 0;
+
+        for (Hotel hotel : allHotels) {
+            maxCapacity += hotel.getMaxCapacity();
+        }
+        return maxCapacity;
+    }
 
 }
+

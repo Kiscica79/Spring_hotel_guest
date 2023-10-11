@@ -15,15 +15,17 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "room_id") // Hotel entitás oszlopa kapcsolat
     private Hotel room;
+    private Integer guestCount;
     private LocalDate startDate;
     private LocalDate endDate;
 
     public Reservation() {}
 
-    public Reservation(Integer id, Guest guest, Hotel room, LocalDate startDate, LocalDate endDate) {
+    public Reservation(Integer id, Guest guest, Hotel room, Integer guestCount, LocalDate startDate, LocalDate endDate) {
         this.id = id;
         this.guest = guest;
         this.room = room;
+        this.guestCount = guestCount;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -66,5 +68,12 @@ public class Reservation {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    public Integer getGuestCount() {
+        return guestCount;
+    }
+    public void setGuestCount(Integer guestCount) {
+        this.guestCount = guestCount;
     }
 }
