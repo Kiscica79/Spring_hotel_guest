@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <meta charset="UTF-8">
+    <title>Foglalás</title>
+</head>
+<body>
+
+<h1>Üdvözöllek a foglalások oldalán</h1>
+
+<h2>Új foglalás készítése:</h2>
+<form action="/reservations" method="post" th:object="${reservation}">
+
+    <label>Vendég ID: <input type="number" name="guest.id" required></label><br>
+    <label>Szoba ID: <input type="number" name="room.id" required></label><br>
+    <label>Vendégek száma: <input type="number" name="guestCount" required></label><br>
+    <label>Érkezés időpont: <input type="date" name="startDate" required></label><br>
+    <label>Távozási időpont: <input type="date" name="endDate" required></label><br>
+    <input type="submit" value="Foglalás leadása">
+</form>
+
+<h2>Lista:</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Vendég ID</th>
+        <th>Szoba ID</th>
+        <th>Vendégek száma</th>
+        <th>Érkezés időpont</th>
+        <th>Távozási időpont</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservation : ${reservations}">
+        <td th:text="${reservation.guest.id}"></td>
+        <td th:text="${reservation.room.id}"></td>
+        <td th:text="${reservation.guestCount}"></td>
+        <td th:text="${reservation.startDate}"></td>
+        <td th:text="${reservation.endDate}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

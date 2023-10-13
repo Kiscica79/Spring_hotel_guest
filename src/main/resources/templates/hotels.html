@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <meta charset="UTF-8">
+    <title>Hotel</title>
+</head>
+<body>
+
+<h1>Üdvözöllek a hotel listájának oldalán</h1>
+
+
+<h2>Lista:</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Szobaszám</th>
+        <th>Max férőhely</th>
+        <th>Ár / Éjszaka</th>
+        <th>Jacuzzi</th>
+        <th>Szauna</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="hotel : ${hotels}">
+        <td th:text="${hotel.roomNumber}"></td>
+        <td th:text="${hotel.maxCapacity}"></td>
+        <td th:text="${hotel.nightlyRate}"></td>
+        <td th:text="${hotel.hasJacuzzi ? 'Igen' : 'Nem'}"></td>
+        <td th:text="${hotel.hasSauna ? 'Igen' : 'Nem'}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

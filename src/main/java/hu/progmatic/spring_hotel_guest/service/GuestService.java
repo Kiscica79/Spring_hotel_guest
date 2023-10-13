@@ -21,8 +21,8 @@
             return guestRepo.findAll();
         }
 
-        public Guest addNewGuest(Guest guest) {
-            return guestRepo.save(guest);
+        public void addNewGuest(Guest guest) {
+            guestRepo.save(guest);
         }
 
         public List<Guest> getGuestsByBirthday(LocalDate date) {

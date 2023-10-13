@@ -56,6 +56,7 @@ public class ReservationService {
     public Reservation saveReservation(Reservation reservation) {
         return reservationRepo.save(reservation);
     }
+
     public int getCurrentOccupancy() {
         List<Reservation> allReservations = getAllReservations();
         int totalGuests = 0;
@@ -65,7 +66,7 @@ public class ReservationService {
         return totalGuests;
     }
 
-        public int calculateOccupancyOnDate(LocalDate date) {
+    public int calculateOccupancyOnDate(LocalDate date) {
         List<Reservation> reservationsOnDate = getReservationsOnDate(date);
         int totalGuests = 0;
 
@@ -90,12 +91,11 @@ public class ReservationService {
 
 
     public int calculateTotalPrice(Reservation reservation) {
-            LocalDate startDate = reservation.getStartDate();
-            LocalDate endDate = reservation.getEndDate();
-            int numberOfNights = (int) ChronoUnit.DAYS.between(startDate, endDate);
-            int totalPrice = reservation.getRoom().getNightlyRate() * numberOfNights;
-
-            return totalPrice;
+        LocalDate startDate = reservation.getStartDate();
+        LocalDate endDate = reservation.getEndDate();
+        int numberOfNights = (int) ChronoUnit.DAYS.between(startDate, endDate);
+        int totalPrice = reservation.getRoom().getNightlyRate() * numberOfNights;
+        return totalPrice;
     }
 
     public List<Hotel> getAvailableRooms(LocalDate startDate, LocalDate endDate) {

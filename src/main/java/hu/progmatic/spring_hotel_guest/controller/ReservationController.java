@@ -24,8 +24,9 @@ public class ReservationController {
 
     // új foglalás létrehozása
     @PostMapping("")
-    public Reservation createReservation(@RequestBody Reservation reservation) {
-            return reservationService.createReservation(reservation);
+    public String createReservation(Reservation reservation) {
+        reservationService.createReservation(reservation);
+        return "redirect:/reservations";
     }
 
     // meglévő foglalás módosítása

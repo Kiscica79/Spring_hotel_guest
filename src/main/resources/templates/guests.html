@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <meta charset="UTF-8">
+    <title>Vendégek</title>
+</head>
+<body>
+
+<h1>Üdvözöllek a vendégek oldalán</h1>
+
+<h2>Adj hozzá új vendéget:</h2>
+<form action="/guests" method="post" th:object="${guest}">
+    <label>Megnevezés: <input type="text" name="title" required></label><br>
+    <label>Keresztnév: <input type="text" name="firstName" required></label><br>
+    <label>Vezetéknév: <input type="text" name="lastName" required></label><br>
+    <label>Születési hely: <input type="text" name="placeOfBirth" required></label><br>
+    <label>Születési idő: <input type="date" name="dateOfBirth" required></label><br>
+    <label>Személyi okmány száma: <input type="text" name="personalId" required></label><br>
+    <label>Email cím: <input type="email" name="email" required></label><br>
+    <input type="submit" value="Vendég hozzáadása">
+</form>
+
+<h2>Vendégek jelenlegi listája:</h2>
+<ul>
+    <li th:each="guest : ${guests}" th:text="${guest.title} + ' ' + ${guest.firstName} + ' ' + ${guest.lastName} + ' - ' + ${guest.email}"></li>
+</ul>
+
+</body>
+</html>
