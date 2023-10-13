@@ -3,17 +3,16 @@ package hu.progmatic.spring_hotel_guest.controller;
 import hu.progmatic.spring_hotel_guest.model.Hotel;
 import hu.progmatic.spring_hotel_guest.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/hotels")
 public class HotelController {
 

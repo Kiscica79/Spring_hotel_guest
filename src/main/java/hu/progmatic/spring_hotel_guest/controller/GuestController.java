@@ -3,12 +3,13 @@ package hu.progmatic.spring_hotel_guest.controller;
 import hu.progmatic.spring_hotel_guest.model.Guest;
 import hu.progmatic.spring_hotel_guest.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/guests")
 public class GuestController {
 

@@ -3,12 +3,13 @@ package hu.progmatic.spring_hotel_guest.controller;
 import hu.progmatic.spring_hotel_guest.model.Reservation;
 import hu.progmatic.spring_hotel_guest.service.ReservationService;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/reservations")
 public class ReservationController {
     private final ReservationService reservationService;
